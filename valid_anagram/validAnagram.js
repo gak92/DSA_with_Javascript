@@ -30,6 +30,7 @@ function validAnagram(firstWord, secondWord)
       lookup[letter] -= 1;
   }
 
+  console.log(lookup);
   return true;
 }
 
