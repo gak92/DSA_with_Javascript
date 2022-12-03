@@ -100,6 +100,19 @@ class SinglyLinkedList {
     return false;
   }
 
+  insert(index, val) {
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return !!this.unshift(val);
+    if(index === this.length) return !!this.push(val);
+    let newNode = new Node(val);
+    let previous = this.get(index - 1);
+    let temp = previous.next;
+    previous.next = newNode;
+    newNode.next = temp;
+    this.length += 1;
+    return true;
+  }
+
 } // End of class
 
 let list = new SinglyLinkedList();
@@ -137,7 +150,12 @@ list.traverse();
 // console.log(list.get(3));
 
 // Set - change the value at given index
-list.set(2,150);
-list.traverse();
+// list.set(2,150);
+// list.traverse();
 
+// Insert - insert at given position
+console.log(list.insert(0,50));
+console.log(list.insert(1,150));
+console.log(list.insert(2,175));
+list.traverse();
 
