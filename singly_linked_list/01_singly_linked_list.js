@@ -54,6 +54,25 @@ class SinglyLinkedList {
     return current;
   }
 
+  unshift(val) {
+    let newNode = new Node(val);
+    if(!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    }
+    else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length += 1;
+    return this;
+  }
+  
+  shift() {
+    if(!this.head) return undefined;
+
+  }
+
 } // End of class
 
 let list = new SinglyLinkedList();
@@ -65,12 +84,20 @@ list.push(300);
 list.traverse();
 
 // Pop elements
-console.log("Poped element: ", list.pop());
+// console.log("Poped element: ", list.pop());
+// list.traverse();
+// console.log("Poped element: ", list.pop());
+// console.log("Poped element: ", list.pop());
+// list.traverse();
+// console.log("Poped element: ", list.pop());
+
+// Unshift - Add element at the start of the list
+list.unshift(50);
+list.unshift(25);
 list.traverse();
-console.log("Poped element: ", list.pop());
-console.log("Poped element: ", list.pop());
-list.traverse();
-console.log("Poped element: ", list.pop());
+
+
+
 
 
 
