@@ -70,7 +70,14 @@ class SinglyLinkedList {
   
   shift() {
     if(!this.head) return undefined;
-
+    let current = this.head;
+    this.head = current.next;
+    current.next = null;
+    this.length -= 1;
+    if(this.length === 0) {
+      this.tail = null;
+    }
+    return current;
   }
 
 } // End of class
@@ -92,14 +99,17 @@ list.traverse();
 // console.log("Poped element: ", list.pop());
 
 // Unshift - Add element at the start of the list
-list.unshift(50);
-list.unshift(25);
+// list.unshift(50);
+// list.unshift(25);
+// list.traverse();
+
+// Shift - Remove element from the start
+console.log(list.shift());
 list.traverse();
-
-
-
-
-
+console.log(list.shift());
+console.log(list.shift());
+console.log(list.shift());
+list.traverse();
 
 
 
