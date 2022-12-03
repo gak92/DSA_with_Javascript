@@ -91,6 +91,15 @@ class SinglyLinkedList {
     return current;
   }
 
+  set(index, val) {
+    let foundNode = this.get(index);
+    if(foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+
 } // End of class
 
 let list = new SinglyLinkedList();
@@ -123,9 +132,12 @@ list.traverse();
 // list.traverse();
 
 // Get - Retrieve node by its position
-console.log(list.get(1));
-console.log(list.get(2));
-console.log(list.get(3));
+// console.log(list.get(1));
+// console.log(list.get(2));
+// console.log(list.get(3));
 
+// Set - change the value at given index
+list.set(2,150);
+list.traverse();
 
 
