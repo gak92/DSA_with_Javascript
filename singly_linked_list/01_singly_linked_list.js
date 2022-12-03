@@ -80,6 +80,17 @@ class SinglyLinkedList {
     return current;
   }
 
+  get(index) {
+    if(index < 0 || index > this.length) return null;
+    let counter = 0;
+    let current = this.head;
+    while(counter !== index) {
+      current = current.next;
+      counter += 1;
+    }
+    return current;
+  }
+
 } // End of class
 
 let list = new SinglyLinkedList();
@@ -104,12 +115,17 @@ list.traverse();
 // list.traverse();
 
 // Shift - Remove element from the start
-console.log(list.shift());
-list.traverse();
-console.log(list.shift());
-console.log(list.shift());
-console.log(list.shift());
-list.traverse();
+// console.log(list.shift());
+// list.traverse();
+// console.log(list.shift());
+// console.log(list.shift());
+// console.log(list.shift());
+// list.traverse();
+
+// Get - Retrieve node by its position
+console.log(list.get(1));
+console.log(list.get(2));
+console.log(list.get(3));
 
 
 
