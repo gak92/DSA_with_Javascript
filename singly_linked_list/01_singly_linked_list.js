@@ -125,6 +125,21 @@ class SinglyLinkedList {
 
   }
 
+  reverse() {
+    let currentNode = this.head;
+    this.head = this.tail;
+    this.tail = currentNode;
+    let nextNode;
+    let previousNode = null;
+    for(let i=0; i<this.length; i++) {
+      nextNode = currentNode.next;
+      currentNode.next = previousNode;
+      previousNode = currentNode;
+      currentNode = nextNode;
+    }
+    return this;
+  }
+
 } // End of class
 
 let list = new SinglyLinkedList();
@@ -133,6 +148,8 @@ let list = new SinglyLinkedList();
 list.push(100);
 list.push(200);
 list.push(300);
+list.push(400);
+list.push(500);
 list.traverse();
 
 // Pop elements
@@ -172,5 +189,9 @@ list.traverse();
 // list.traverse();
 
 // removed - remove a node at specific index
-console.log(list.remove(1));
+// console.log(list.remove(1));
+// list.traverse();
+
+// Reverse a linked list
+list.reverse();
 list.traverse();
