@@ -113,6 +113,18 @@ class SinglyLinkedList {
     return true;
   }
 
+  remove(index) {
+    if(index < 0 || index > this.length) return undefined;
+    if(index === 0) return this.shift();
+    if(index === this.length) return this.pop();
+    let previousNode = this.get(index - 1);
+    let removed = previousNode.next;
+    previousNode.next = removed.next;
+    this.length -= 1;
+    return removed;
+
+  }
+
 } // End of class
 
 let list = new SinglyLinkedList();
@@ -154,8 +166,11 @@ list.traverse();
 // list.traverse();
 
 // Insert - insert at given position
-console.log(list.insert(0,50));
-console.log(list.insert(1,150));
-console.log(list.insert(2,175));
-list.traverse();
+// console.log(list.insert(0,50));
+// console.log(list.insert(1,150));
+// console.log(list.insert(2,175));
+// list.traverse();
 
+// removed - remove a node at specific index
+console.log(list.remove(1));
+list.traverse();
