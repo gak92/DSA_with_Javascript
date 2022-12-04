@@ -61,6 +61,22 @@ class DoublyLinkedList {
     this.length -= 1;
     return poppedNode;
   }
+
+  shift() {
+    if(this.length === 0) return undefined;
+    let oldHead = this.head;
+    if(this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    }
+    else {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      oldHead.next = null;
+    }
+    this.length -= 1;
+    return oldHead;
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -73,5 +89,10 @@ list.push(400);
 list.push(500);
 list.traverse();
 
-console.log(list.pop());
+// Pop an element
+// console.log(list.pop());
+// list.traverse();
+
+// Shift an element
+console.log(list.shift());
 list.traverse();
