@@ -13,6 +13,24 @@ class DoublyLinkedList {
     this.tail = null;
   }
 
+  traverse() {
+    let arr = [];
+    let currentNode = this.head;
+    for(let i=0; i<this.length; i++) {
+      arr.push(currentNode.val);
+      currentNode = currentNode.next;
+    }
+    console.log("Original Order: ", arr);
+
+    let rev = [];
+    let currentNode2 = this.tail;
+    for(let i=0; i<this.length; i++) {
+      rev.push(currentNode2.val);
+      currentNode2 = currentNode2.prev;
+    }
+    console.log("Reverse Order: ", rev);
+  }
+
   push(val) {
     let newNode = new Node(val);
     if(!this.head) {
@@ -37,4 +55,4 @@ list.push(200);
 list.push(300);
 list.push(400);
 list.push(500);
-// list.traverse();
+list.traverse();
