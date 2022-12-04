@@ -77,6 +77,21 @@ class DoublyLinkedList {
     this.length -= 1;
     return oldHead;
   }
+
+  unshift(val) {
+    let newNode = new Node(val);
+    if(this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+    else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length += 1;
+    return this;
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -94,5 +109,10 @@ list.traverse();
 // list.traverse();
 
 // Shift an element
-console.log(list.shift());
+// console.log(list.shift());
+// list.traverse();
+
+// Unshift an element
+list.unshift(50);
 list.traverse();
+
