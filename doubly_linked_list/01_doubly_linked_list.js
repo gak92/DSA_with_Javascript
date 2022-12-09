@@ -115,7 +115,16 @@ class DoublyLinkedList {
     // return current.val;
     return current;
   }
-}
+
+  set(index, val) {
+    let foundNode = this.get(index);
+    if(foundNode !== null) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+} // End of class
 
 let list = new DoublyLinkedList();
 
@@ -140,8 +149,11 @@ list.traverse();
 // list.traverse();
 
 // Get an element
-console.log(list.get(-1));
-console.log(list.get(11));
-console.log(list.get(0));
-console.log(list.get(4));
+// console.log(list.get(-1));
+// console.log(list.get(11));
+// console.log(list.get(0));
+// console.log(list.get(4));
 
+// Set an element
+list.set(2,999);
+list.traverse();
