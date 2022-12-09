@@ -92,6 +92,29 @@ class DoublyLinkedList {
     this.length += 1;
     return this;
   }
+
+  get(index) {
+    if(index < 0 || index > this.length) return null;
+    let count, current;
+    if(index <= this.length / 2) {
+      count = 0;
+      current = this.head;
+      while(count !== index) {
+        current = current.next;
+        count += 1;
+      }
+    }
+    else {
+      count = this.length - 1;
+      current = this.tail;
+      while(count !== index) {
+        current = current.prev;
+        count -= 1;
+      }
+    }
+    // return current.val;
+    return current;
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -113,6 +136,12 @@ list.traverse();
 // list.traverse();
 
 // Unshift an element
-list.unshift(50);
-list.traverse();
+// list.unshift(50);
+// list.traverse();
+
+// Get an element
+console.log(list.get(-1));
+console.log(list.get(11));
+console.log(list.get(0));
+console.log(list.get(4));
 
