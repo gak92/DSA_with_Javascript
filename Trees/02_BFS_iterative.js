@@ -65,8 +65,27 @@ class BST {
 
   } // End of find method
 
+  bfs() {
+    let q = [];
+    let data = [];
+    let node = this.root;
+    q.push(node);
+
+    while(q.length) {
+      node = q.shift();
+      data.push(node.val);
+
+      if(node.left) q.push(node.left);
+      if(node.right) q.push(node.right);
+    }
+
+    return data;
+  } // End of bfs method
+
 } // End of class BST
 
+
+// Create BST
 let bst = new BST();
 bst.insert(10);
 bst.insert(6);
@@ -75,7 +94,10 @@ bst.insert(3);
 bst.insert(8);
 bst.insert(20);
 
-console.log(bst.find(1));
-console.log(bst.find(15));
-console.log(bst.find(10));
-console.log(bst.find(19));
+//          10
+//    6           15
+//  3   8             20
+
+// BFS Traverse the Tree
+// BFS = [10, 6, 15, 3, 8, 20]
+console.log("Breadth First Traversal: ", bst.bfs());
