@@ -124,6 +124,25 @@ class DoublyLinkedList {
     }
     return false;
   }
+
+  insert(index, val) {
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return !!this.unshift(val);
+    if(index === this.length) !!this.push(val);
+
+    let newNode = new Node(val);
+    let beforeNode = this.get(index - 1);
+    let afterNode = beforeNode.next;
+
+    beforeNode.next = newNode;
+    newNode.prev = beforeNode;
+    afterNode.prev = newNode;
+    newNode.next = afterNode;
+
+    this.length += 1;
+    return true;
+  }
+
 } // End of class
 
 let list = new DoublyLinkedList();
@@ -155,5 +174,9 @@ list.traverse();
 // console.log(list.get(4));
 
 // Set an element
-list.set(2,999);
+// list.set(2,999);
+// list.traverse();
+
+// Insert an element
+list.insert(0, 141);
 list.traverse();
