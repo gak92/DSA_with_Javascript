@@ -36,6 +36,36 @@ class HashTable {
     return undefined;
   }
 
+  keys() {
+    let keyArr = [];
+    for(let i = 0; i < this.keyMap.length; i++) {
+      if(this.keyMap[i]) {
+        for(let j = 0; j < this.keyMap[i].length; j++) {
+          if(!keyArr.includes(this.keyMap[i][j][0])) {
+            keyArr.push(this.keyMap[i][j][0]);
+          }
+        }
+      }
+    }
+
+    return keyArr;
+  }
+
+  values() {
+    let valueArr = [];
+    for(let i = 0; i < this.keyMap.length; i++) {
+      if(this.keyMap[i]) {
+        for(let j = 0; j < this.keyMap[i].length; j++) {
+          if(!valueArr.includes(this.keyMap[i][j][1])) {
+            valueArr.push(this.keyMap[i][j][1]);
+          }
+        }
+      }
+    }
+
+    return valueArr;
+  }
+
 } // End of class HashTable
 
 let ht = new HashTable(11);
@@ -52,3 +82,6 @@ ht.set("violet","#DDA0DD")
 console.log(ht.keyMap);
 console.log(ht.get("salmon"));
 console.log(ht.get("yellow"));
+
+console.log("Keys: ", ht.keys());
+console.log("Values: ", ht.values());
